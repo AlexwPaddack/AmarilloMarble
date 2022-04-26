@@ -9,9 +9,14 @@ namespace AmarilloMarble.Models
     {
         public int CustomerId {get; set;}
         [Required]
-        [StringLength(60)]
+        [StringLength(15)]
+        [Display(Name = "First Name")]
         public string CustomerFirstName {get; set;}
+        [Required]
+        [StringLength(20)]
+        [Display(Name = "Last Name")]
         public string CustomerLastName {get; set;}
+        public string CustomerFullName {get {return this.CustomerFirstName + " " + this.CustomerLastName;}}
         public List<Job> Jobs {get; set;}
     }
 }

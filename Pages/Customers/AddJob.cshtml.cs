@@ -28,7 +28,7 @@ namespace AmarilloMarble.Pages
 
         public void OnGet()
         {
-            CustomersDropDown = new SelectList(_context.Customer.ToList(), "CustomerId", "CustomerFirstName CustomerLastName");
+            CustomersDropDown = new SelectList(_context.Customer.ToList(), "CustomerId", "CustomerFullName");
         }
 
         public IActionResult OnPost()

@@ -11,9 +11,9 @@ namespace AmarilloMarble.Pages.Customers
 {
     public class CreateModel : PageModel
     {
-        private readonly AmarilloMarble.Models.CustomerDbContext _context;
+        private readonly RazorPagesCustomerContext _context;
 
-        public CreateModel(AmarilloMarble.Models.CustomerDbContext context)
+        public CreateModel(RazorPagesCustomerContext context)
         {
             _context = context;
         }

@@ -7,11 +7,16 @@ namespace AmarilloMarble.Models
     public class Job
     {
         public int JobId {get; set;}
-        public string CustFirstName {get; set;}
-        public string CustLastName {get; set;}
         public string JobAddress {get; set;}
         public string JobBuilder {get; set;}
         public DateTime JobDate {get; set;}
+
+        [Display(Name = "Customer")]
+        [Required]
+        public int CustomerId {get; set;} // Foreign Key linking Job to Customer
+        public Customer Customer {get; set;}
+
+
         
     }
 }

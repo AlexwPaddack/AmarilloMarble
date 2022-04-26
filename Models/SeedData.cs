@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Linq;
+using System.Collections.Generic;
 
 namespace AmarilloMarble.Models
 {
@@ -13,33 +14,46 @@ namespace AmarilloMarble.Models
                 serviceProvider.GetRequiredService<DbContextOptions<CustomerDbContext>>()))
             {
                 // Look for any Customers.
-                if (context.Customers.Any())
+                if (context.Customer.Any())
                 {
                     return; // DB has been seeded
                 }
                 
-                context.Customers.AddRange(
+                context.Customer.AddRange(
                     new Customer
                     {
                         CustomerFirstName = "Kenny",
-                        CustomerLastName = "Hartman"
+                        CustomerLastName = "Hartman",
+                        Jobs = new List<Job> {
+                            new Job { JobAddress = "1234 Jewellery Lane", JobBuilder = "Bill Widdick", JobDate = DateTime.Parse("2018-4-14") },
+                            new Job { JobAddress = "8296 Calumet Drive", JobBuilder = "Shane Ward", JobDate = DateTime.Parse("2021-8-25") }
+                        }
                     },
                     new Customer
                     {
-                        CustomerFirstName = "",
-                        CustomerLastName = "Beck"
+                        CustomerFirstName = "Roger",
+                        CustomerLastName = "Beck",
+                        Jobs = new List<Job> {
+                            new Job { JobAddress = "1234 Jewellery Lane", JobBuilder = "Bill Widdick", JobDate = DateTime.Parse("2018-4-14") }
+                        }
                     },
 
                     new Customer
                     {
                         CustomerFirstName = "David",
-                        CustomerLastName = "Evans"
+                        CustomerLastName = "Evans",
+                        Jobs = new List<Job> {
+                            new Job { JobAddress = "1234 Jewellery Lane", JobBuilder = "Bill Widdick", JobDate = DateTime.Parse("2018-4-14") }
+                        }
                     },
 
                     new Customer
                     {
                         CustomerFirstName = "Bill",
-                        CustomerLastName = "Widick"
+                        CustomerLastName = "Widick",
+                        Jobs = new List<Job> {
+                            new Job { JobAddress = "1234 Jewellery Lane", JobBuilder = "Bill Widdick", JobDate = DateTime.Parse("2018-4-14") }
+                        }
                     }
                 );
                 

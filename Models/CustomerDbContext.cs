@@ -8,6 +8,7 @@ namespace AmarilloMarble.Models
 			: base(options)
 		{
 		}
-		public DbSet<Customer> Customers {get; set;}
+		public DbSet<Customer> Customer {get; set;}
+		public DbSet<Job> Job {get; set;}
 	}
 }

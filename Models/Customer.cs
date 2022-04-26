@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations; 
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Collections.Generic;
 
 namespace AmarilloMarble.Models
 {
@@ -11,5 +12,6 @@ namespace AmarilloMarble.Models
         [StringLength(60)]
         public string CustomerFirstName {get; set;}
         public string CustomerLastName {get; set;}
+        public List<Job> Jobs {get; set;}
     }
 }

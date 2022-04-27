@@ -5,48 +5,47 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<h1>@Html.DisplayFor(model => model.Customer.CustomerFullName)</h1>
+<p>
+    <a asp-page="AddJob">Add Job</a>
+</p>
 
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Job.JobAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Job.JobBuilder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Job.JobDate)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Customer.Jobs) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobBuilder)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.JobDate)
+            </td>
+            <td>
+                <a asp-page="./EditJob" asp-route-id="@item.JobId">Edit</a> |
+                <a asp-page="./DeleteJob" asp-route-id="@item.JobId">Delete</a> 
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
 <div>
-    <h4>Customer</h4>
-    <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Customer.CustomerFirstName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Customer.CustomerFirstName)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Customer.CustomerLastName)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Customer.CustomerLastName)
-        </dd>
-        @foreach(var r in Model.Customer.Jobs)
-        {
-            <dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => r.JobAddress)
-            </dt>
-            <dd class = "col-sm-1">
-                @Html.DisplayFor(model => r.JobAddress)
-            </dd>
-            <dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => r.JobBuilder)
-            </dt>
-            <dd class = "col-sm-1">
-                @Html.DisplayFor(model => r.JobBuilder)
-            </dd>
-            <dt class = "col-sm-2">
-                @Html.DisplayNameFor(model => r.JobDate)
-            </dt>
-            <dd class = "col-sm-1">
-                @Html.DisplayFor(model => r.JobDate)
-            </dd>
-        }
-    </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.Customer.CustomerId">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <a asp-page="Index">Back to List</a>
 </div>

@@ -19,6 +19,7 @@ namespace AmarilloMarble.Pages.Customers
         }
 
         public Customer Customer { get; set; }
+        public Job Job {get; set;}
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {

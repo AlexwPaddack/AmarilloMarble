@@ -7,8 +7,13 @@ namespace AmarilloMarble.Models
     public class Job
     {
         public int JobId {get; set;}
+        [Required]
+        [Display(Name = "Address")]
         public string JobAddress {get; set;}
+        [Display(Name = "Builder")]
         public string JobBuilder {get; set;}
+        [Required]
+        [Display(Name = "Date")]
         public DateTime JobDate {get; set;}
 
         [Display(Name = "Customer")]

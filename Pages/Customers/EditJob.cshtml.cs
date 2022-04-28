@@ -47,9 +47,9 @@ namespace AmarilloMarble.Pages.Customers
                 return NotFound();
             }
 
-            Job = await _context.Job.FindAsync(id);
+            //var TempJob = await _context.Job.FindAsync(Job.JobId);
 
-            if(Job != null)
+            if(JobExists(Job.JobId))
             {
                 _context.Attach(Job).State = EntityState.Modified;
                 await _context.SaveChangesAsync();

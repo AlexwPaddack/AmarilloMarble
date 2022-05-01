@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using AmarilloMarble.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace AmarilloMarble.Pages.Customers
 {
@@ -17,7 +18,6 @@ namespace AmarilloMarble.Pages.Customers
         {
             _context = context;
         }
-
         public Customer Customer { get; set; }
         public Job Job {get; set;}
 

@@ -1,4 +1,4 @@
-@page
+@page "{SearchString?}"
 @model AmarilloMarble.Pages.Customers.IndexModel
 
 @{
@@ -11,9 +11,31 @@
     <a asp-page="Create">Create New Customer</a><span> | </span>
     <a asp-page="AddJob">Add Job</a>
 </p>
+<form>
+	<select asp-for="CurrentSort" asp-items="Model.SortList">
+		<option value="">sort by...</option>
+	</select>
+	<button type="submit">Sort</button>
+</form>
+<form>
+    <p>
+        Customer: <input type = "text" asp-for="SearchString" />
+        <input type="submit" value="Filter" />
+    </p>
+</form>
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @{
+                    var firstSort = "first_asc";
+                    if(Model.CurrentSort == "first_asc")
+                    {
+                        firstSort = "first_desc";
+                    }
+                }
+                <a asp-page="./Index" asp-route-CurrentSort="@firstSort">@Html.DisplayNameFor(model => model.Customer[0].CustomerFirstName)</a>
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Customer[0].CustomerFirstName)
             </th>
@@ -24,7 +46,7 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Customer) {
+@foreach (var item in Model.Customers) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.CustomerFirstName)
@@ -41,3 +63,21 @@
 }
     </tbody>
 </table>
+@{
+    var prevDisabled = "";
+    if (Model.PageNum <= 1)
+    {
+        prevDisabled = "disabled";
+    }
+    var nextDisabled = "";
+    if (Model.PageNum >= 3)
+    {
+        nextDisabled = "disabled";
+    }
+}
+<nav aria-label="Details Navigation">
+  <ul class="pagination">
+    <li class="page-item @prevDisabled"><a class="page-link" asp-page="./Index" asp-route-PageNum="@(Model.PageNum - 1)">Previous</a></li>
+    <li class="page-item @nextDisabled"><a class="page-link" asp-page="./Index" asp-route-PageNum="@(Model.PageNum + 1)">Next</a></li>
+  </ul>
+</nav>

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AmarilloMarble.Migrations
 {
     [DbContext(typeof(CustomerDbContext))]
-    [Migration("20220426143415_InitialCreate")]
+    [Migration("20220501192905_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,10 +27,12 @@ namespace AmarilloMarble.Migrations
                     b.Property<string>("CustomerFirstName")
                         .IsRequired()
                         .HasColumnType("TEXT")
-                        .HasMaxLength(60);
+                        .HasMaxLength(15);
 
                     b.Property<string>("CustomerLastName")
-                        .HasColumnType("TEXT");
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(20);
 
                     b.HasKey("CustomerId");
 
@@ -47,6 +49,7 @@ namespace AmarilloMarble.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("JobAddress")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("JobBuilder")

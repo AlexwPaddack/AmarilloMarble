@@ -13,8 +13,8 @@ namespace AmarilloMarble.Migrations
                 {
                     CustomerId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    CustomerFirstName = table.Column<string>(maxLength: 60, nullable: false),
-                    CustomerLastName = table.Column<string>(nullable: true)
+                    CustomerFirstName = table.Column<string>(maxLength: 15, nullable: false),
+                    CustomerLastName = table.Column<string>(maxLength: 20, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -27,7 +27,7 @@ namespace AmarilloMarble.Migrations
                 {
                     JobId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    JobAddress = table.Column<string>(nullable: true),
+                    JobAddress = table.Column<string>(nullable: false),
                     JobBuilder = table.Column<string>(nullable: true),
                     JobDate = table.Column<DateTime>(nullable: false),
                     CustomerId = table.Column<int>(nullable: false)

@@ -28,9 +28,6 @@ namespace AmarilloMarble
             services.AddRazorPages();
             services.AddDbContext<CustomerDbContext>(options => 
                 options.UseSqlite(Configuration.GetConnectionString("CustomerContext")));        
-
-            services.AddDbContext<RazorPagesCustomerContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("RazorPagesCustomerContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

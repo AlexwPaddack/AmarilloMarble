@@ -25,10 +25,12 @@ namespace AmarilloMarble.Migrations
                     b.Property<string>("CustomerFirstName")
                         .IsRequired()
                         .HasColumnType("TEXT")
-                        .HasMaxLength(60);
+                        .HasMaxLength(15);
 
                     b.Property<string>("CustomerLastName")
-                        .HasColumnType("TEXT");
+                        .IsRequired()
+                        .HasColumnType("TEXT")
+                        .HasMaxLength(20);
 
                     b.HasKey("CustomerId");
 
@@ -45,6 +47,7 @@ namespace AmarilloMarble.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("JobAddress")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("JobBuilder")

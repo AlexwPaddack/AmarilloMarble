@@ -50,9 +50,30 @@ namespace AmarilloMarble.Models
                     new Customer
                     {
                         CustomerFirstName = "Bill",
-                        CustomerLastName = "Widick",
+                        CustomerLastName = "Widdick",
                         Jobs = new List<Job> {
                             new Job { JobAddress = "1234 Jewellery Lane", JobBuilder = "Bill Widdick", JobDate = DateTime.Parse("2018-4-14") }
+                        }
+                    },
+
+                    new Customer
+                    {
+                        CustomerFirstName = "Shane",
+                        CustomerLastName = "Ward",
+                        Jobs = new List<Job> {
+                            new Job { JobAddress = "1234 Jewellery Lane", JobBuilder = "Bill Widdick", JobDate = DateTime.Parse("2018-4-14") }
+                        }
+                    },
+
+                    new Customer
+                    {
+                        CustomerFirstName = "Jason",
+                        CustomerLastName = "Vineyards",
+                        Jobs = new List<Job> {
+                            new Job { JobAddress = "1302 Merlot", JobBuilder = "Neilson Communities", JobDate = DateTime.Parse("2021-9-30") },
+                            new Job { JobAddress = "1303 Merlot", JobBuilder = "Neilson Communities", JobDate = DateTime.Parse("2021-9-30") },
+                            new Job { JobAddress = "1305 Merlot", JobBuilder = "Neilson Communities", JobDate = DateTime.Parse("2021-9-23") },
+                            new Job { JobAddress = "1438 Merlot", JobBuilder = "Neilson Communities", JobDate = DateTime.Parse("2021-11-3") },
                         }
                     }
                 );
